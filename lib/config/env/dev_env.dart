@@ -14,7 +14,9 @@ class DevEnv extends Env {
       endpoint: AppwriteConfig.endpointDev,
       projectId: AppwriteConfig.projectIdDev,
       proxyUrl: AppwriteConfig.proxyUrlDev,
-      debugOptions: DebugOptions(),
+      debugOptions: DebugOptions(
+        debugShowCheckedModeBanner: true,
+      ),
     );
   }
 }

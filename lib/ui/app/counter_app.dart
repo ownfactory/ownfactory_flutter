@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CounterApp extends StatelessWidget {
@@ -31,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+      _counter = _counter + log(_counter).truncate();
     });
   }
 

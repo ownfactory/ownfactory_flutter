@@ -1,3 +1,5 @@
+
+/// Appwrite configuration for all build types
 abstract class AppwriteConfig {
   // release config
   static const endpointProd = 'https://localhost/v1';
