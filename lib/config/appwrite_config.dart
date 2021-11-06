@@ -1,4 +1,3 @@
-
 /// Appwrite configuration for all build types
 abstract class AppwriteConfig {
   // release config

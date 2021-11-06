@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_loggy/flutter_loggy.dart';
 import 'package:loggy/loggy.dart';
-import 'package:ownfactory_flutter/ui/app/counter_app.dart';
+import 'package:ownfactory_flutter/features/app/app.dart';
 
 Future<void> runApplication() async {
   // pin orientation
@@ -17,7 +17,7 @@ Future<void> runApplication() async {
 void _runApp() {
   runZonedGuarded<Future<void>>(
     () async {
-      runApp(const CounterApp());
+      runApp(const App());
     },
     (error, stacktrace) {
       logError('Unhandled exception was caught $error');
