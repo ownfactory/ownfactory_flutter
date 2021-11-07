@@ -2,8 +2,8 @@ import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ownfactory_flutter/di/di_container.dart';
+import 'package:ownfactory_flutter/features/app/screens/coming_soon/coming_soon_screen.dart';
 import 'package:ownfactory_flutter/features/app/screens/init_screen/init_screen.dart';
-import 'package:ownfactory_flutter/ui/app/counter_app.dart';
 import 'package:ownfactory_flutter/utils/stub_model.dart';
 
 InitScreenWM createInitScreenWM(BuildContext context) {
@@ -26,11 +26,7 @@ class InitScreenWM extends WidgetModel<InitScreen, StubModel> {
     super.initWidgetModel();
 
     Future<void>.delayed(_splashDuration).then<void>(
-      (_) => _rootNavigator.pushReplacement(
-        MaterialPageRoute(
-          builder: (_) => const MyHomePage(title: 'Flutter Demo Home Page'),
-        ),
-      ),
+      (_) => _rootNavigator.pushReplacement(ComingSoonScreenRoute()),
     );
   }
 }
