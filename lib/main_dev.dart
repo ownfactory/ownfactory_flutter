@@ -6,6 +6,6 @@ import 'package:ownfactory_flutter/runner.dart';
 //Main entry point of app
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initDi(Environment.prod);
+  initDi(Environment.dev);
   await runApplication();
 }
