@@ -1,5 +1,5 @@
 import 'package:ownfactory_flutter/config/build_types.dart';
-import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
+import 'package:ownfactory_flutter/domain/debug_options.dart';
 
 /// Application configuration
 class Config {

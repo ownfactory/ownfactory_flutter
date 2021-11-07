@@ -2,22 +2,20 @@ import 'package:elementary/elementary.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ownfactory_flutter/config/env/env.dart';
 import 'package:ownfactory_flutter/di/di_container.dart';
+import 'package:ownfactory_flutter/domain/debug_options.dart';
 import 'package:ownfactory_flutter/features/app/app.dart';
-import 'package:ownfactory_flutter/features/app/app_model.dart';
-import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
+import 'package:ownfactory_flutter/utils/stub_model.dart';
 
-AppWM createAppWM(BuildContext context) {
-  return AppWM(AppModel());
-}
+AppWM createAppWM(BuildContext context) => AppWM();
 
-class AppWM extends WidgetModel<App, AppModel> {
+class AppWM extends WidgetModel<App, StubModel> {
   /// root navigator
   final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
   /// debug option state
   final debugOptionsState = StateNotifier<DebugOptions>(initValue: getIt<Env>().debugOptions);
 
-  AppWM(AppModel model) : super(model);
+  AppWM() : super(StubModel());
 
   @override
   void initWidgetModel() {

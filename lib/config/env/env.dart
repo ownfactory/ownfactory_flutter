@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:ownfactory_flutter/config/appwrite_config.dart';
 import 'package:ownfactory_flutter/config/build_types.dart';
 import 'package:ownfactory_flutter/config/config.dart';
-import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
+import 'package:ownfactory_flutter/domain/debug_options.dart';
 
 /// Environment configuration
 @Singleton(env: [Environment.prod])

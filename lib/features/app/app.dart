@@ -1,9 +1,9 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ownfactory_flutter/domain/debug_options.dart';
 import 'package:ownfactory_flutter/features/app/app_wm.dart';
-import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
-import 'package:ownfactory_flutter/ui/app/counter_app.dart';
+import 'package:ownfactory_flutter/features/app/screens/init_screen/init_screen.dart';
 import 'package:ownfactory_flutter/ui/theme/app_theme.dart';
 
 class App extends ElementaryWidget<AppWM> {
@@ -31,7 +31,8 @@ class App extends ElementaryWidget<AppWM> {
           showSemanticsDebugger: debugOptions.showSemanticsDebugger,
           debugShowCheckedModeBanner: debugOptions.debugShowCheckedModeBanner,
 
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          // routes
+          home: const InitScreen(),
         );
       },
     );
