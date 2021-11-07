@@ -7,7 +7,10 @@ import 'package:ownfactory_flutter/ui/app/counter_app.dart';
 import 'package:ownfactory_flutter/ui/theme/app_theme.dart';
 
 class App extends ElementaryWidget<AppWM> {
-  const App({Key? key, wmFactory = createAppWM}) : super(wmFactory, key: key);
+  const App({
+    Key? key,
+    WidgetModelFactory wmFactory = createAppWM,
+  }) : super(wmFactory, key: key);
 
   @override
   Widget build(AppWM wm) {

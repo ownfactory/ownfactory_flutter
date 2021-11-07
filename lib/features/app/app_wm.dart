@@ -11,13 +11,13 @@ AppWM createAppWM(BuildContext context) {
 }
 
 class AppWM extends WidgetModel<App, AppModel> {
-  AppWM(AppModel model) : super(model);
-
   /// root navigator
   final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
   /// debug option state
   final debugOptionsState = StateNotifier<DebugOptions>(initValue: getIt<Env>().debugOptions);
+
+  AppWM(AppModel model) : super(model);
 
   @override
   void initWidgetModel() {

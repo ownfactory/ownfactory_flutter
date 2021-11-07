@@ -1,5 +1,12 @@
 /// additional application settings in debug mode
 class DebugOptions {
+  final bool showPerformanceOverlay;
+  final bool debugShowMaterialGrid;
+  final bool checkerboardRasterCacheImages;
+  final bool checkerboardOffscreenLayers;
+  final bool showSemanticsDebugger;
+  final bool debugShowCheckedModeBanner;
+
   DebugOptions({
     this.showPerformanceOverlay = false,
     this.debugShowMaterialGrid = false,
@@ -8,13 +15,6 @@ class DebugOptions {
     this.showSemanticsDebugger = false,
     this.debugShowCheckedModeBanner = false,
   });
-
-  final bool showPerformanceOverlay;
-  final bool debugShowMaterialGrid;
-  final bool checkerboardRasterCacheImages;
-  final bool checkerboardOffscreenLayers;
-  final bool showSemanticsDebugger;
-  final bool debugShowCheckedModeBanner;
 
   DebugOptions copyWith({
     bool? showPerformanceOverlay,

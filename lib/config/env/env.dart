@@ -8,17 +8,6 @@ import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
 /// Environment configuration
 @Singleton(env: [Environment.prod])
 class Env extends ChangeNotifier {
-  Env()
-      : _config = Config(
-          buildType: BuildType.release,
-          endpoint: AppwriteConfig.endpointProd,
-          projectId: AppwriteConfig.projectIdProd,
-          proxyUrl: AppwriteConfig.proxyUrlProd,
-          debugOptions: DebugOptions(),
-        );
-
-  Config _config;
-
   Config get config => _config;
 
   BuildType get buildType => _config.buildType;
@@ -62,4 +51,15 @@ class Env extends ChangeNotifier {
     _config = _config.copyWith(debugOptions: value);
     notifyListeners();
   }
+
+  Config _config;
+
+  Env()
+      : _config = Config(
+          buildType: BuildType.release,
+          endpoint: AppwriteConfig.endpointProd,
+          projectId: AppwriteConfig.projectIdProd,
+          proxyUrl: AppwriteConfig.proxyUrlProd,
+          debugOptions: DebugOptions(),
+        );
 }

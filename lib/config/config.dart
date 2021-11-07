@@ -3,6 +3,12 @@ import 'package:ownfactory_flutter/features/debug/domain/debug_options.dart';
 
 /// Application configuration
 class Config {
+  final String endpoint;
+  final String projectId;
+  final String proxyUrl;
+  final DebugOptions debugOptions;
+  final BuildType buildType;
+
   Config({
     required this.endpoint,
     required this.projectId,
@@ -10,12 +16,6 @@ class Config {
     required this.buildType,
     this.proxyUrl = '',
   });
-
-  final String endpoint;
-  final String projectId;
-  final String proxyUrl;
-  final DebugOptions debugOptions;
-  final BuildType buildType;
 
   Config copyWith({
     String? endpoint,
