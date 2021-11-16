@@ -1,19 +1,27 @@
 import 'package:injectable/injectable.dart';
 import 'package:ownfactory_flutter/features/appwrite/appwrite_storage.dart';
+import 'package:ownfactory_flutter/features/auth/session_interactor.dart';
 
 @injectable
 class AuthInteractor {
   final AppwriteStorage _storage;
+  final SessionInteractor _sessionInteractor;
 
-  AuthInteractor(this._storage);
-
-  Future<bool> isAuth() => _storage.isAuth();
+  AuthInteractor(
+    this._storage,
+    this._sessionInteractor,
+  );
 
   Future<void> login({
     required String email,
     required String password,
-  }) =>
-      _storage.login(email: email, password: password);
+  }) async {
+    await _storage.login(email: email, password: password);
+    _sessionInteractor.notifyStartSession();
+  }
 
-  Future<void> logout() => _storage.logout();
+  Future<void> logout() async {
+    _sessionInteractor.notifyEndSession();
+    await _storage.logout();
+  }
 }

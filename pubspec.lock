@@ -667,6 +667,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  routemaster:
+    dependency: "direct main"
+    description:
+      name: routemaster
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.5"
   rxdart:
     dependency: transitive
     description:
@@ -769,7 +776,7 @@ packages:
       name: surf_lint_rules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.4.1"
   term_glyph:
     dependency: transitive
     description:

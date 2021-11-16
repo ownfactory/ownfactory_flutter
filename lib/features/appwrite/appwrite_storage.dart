@@ -7,8 +7,8 @@ import 'package:ownfactory_flutter/config/env/env.dart';
 class AppwriteStorage with NetworkLoggy {
   final Env _env;
 
-  late Client _client;
-  late Account _account;
+  late final Client _client;
+  late final Account _account;
 
   AppwriteStorage(this._env);
 
