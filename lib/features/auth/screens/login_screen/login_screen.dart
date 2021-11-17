@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ownfactory_flutter/features/app/screens/login_screen/login_screen_wm.dart';
+import 'package:ownfactory_flutter/features/auth/screens/login_screen/login_screen_wm.dart';
 import 'package:ownfactory_flutter/ui/res/assets.dart';
 
 class LoginScreen extends ElementaryWidget<LoginScreenWM> {

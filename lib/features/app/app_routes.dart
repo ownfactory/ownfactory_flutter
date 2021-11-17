@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ownfactory_flutter/features/app/screens/coming_soon/coming_soon_screen.dart';
 import 'package:ownfactory_flutter/features/app/screens/init_screen/init_screen.dart';
-import 'package:ownfactory_flutter/features/app/screens/login_screen/login_screen.dart';
 import 'package:ownfactory_flutter/features/app/screens/tabs_screen/tabs_screen.dart';
+import 'package:ownfactory_flutter/features/auth/screens/login_screen/login_screen.dart';
 import 'package:routemaster/routemaster.dart';
 
 abstract class AppRoutes {
