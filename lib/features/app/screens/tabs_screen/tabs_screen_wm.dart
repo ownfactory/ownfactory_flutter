@@ -8,7 +8,7 @@ TabsScreenWM createTabsScreenWM(
   BuildContext context, {
   bool isAuth = false,
 }) {
-  return TabsScreenWM();
+  return TabsScreenWM(isAuth: isAuth);
 }
 
 class TabsScreenWM extends WidgetModel<TabsScreen, StubModel> {
@@ -23,12 +23,6 @@ class TabsScreenWM extends WidgetModel<TabsScreen, StubModel> {
     super.initWidgetModel();
     tabPage = TabPage.of(context);
     tabPage.controller.addListener(_tabIndexListener);
-  }
-
-  @override
-  void dispose() {
-    tabPage.controller.removeListener(_tabIndexListener);
-    super.dispose();
   }
 
   void onNavigationItemClick(int value) {
