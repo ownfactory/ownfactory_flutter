@@ -1,12 +1,12 @@
 /// Appwrite configuration for all build types
 abstract class AppwriteConfig {
   // release config
-  static const endpointProd = 'https://localhost/v1';
-  static const projectIdProd = 'change-me';
+  static const endpointProd = 'http://localhost/v1';
+  static const projectIdProd = '6185a8daede7b';
   static const proxyUrlProd = '';
 
   // debug config
-  static const endpointDev = 'https://localhost/v1';
-  static const projectIdDev = 'change-me';
+  static const endpointDev = 'http://localhost/v1';
+  static const projectIdDev = '6185a8daede7b';
   static const proxyUrlDev = '';
 }
