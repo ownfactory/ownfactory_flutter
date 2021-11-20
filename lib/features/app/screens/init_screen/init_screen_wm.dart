@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:ownfactory_flutter/features/app/screens/init_screen/init_screen.dart';
 import 'package:ownfactory_flutter/utils/stub_model.dart';
 
-InitScreenWM createInitScreenWM(BuildContext context) => InitScreenWM();
-
 class InitScreenWM extends WidgetModel<InitScreen, StubModel> {
   InitScreenWM() : super(StubModel());
 }
+
+InitScreenWM createInitScreenWM(BuildContext context) => InitScreenWM();

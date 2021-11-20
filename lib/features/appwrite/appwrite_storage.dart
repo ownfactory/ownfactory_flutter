@@ -1,4 +1,5 @@
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart';
 import 'package:injectable/injectable.dart';
 import 'package:loggy/loggy.dart';
 import 'package:ownfactory_flutter/config/env/env.dart';
@@ -28,7 +29,7 @@ class AppwriteStorage with NetworkLoggy {
     }
   }
 
-  Future<void> login({
+  Future<Session> login({
     required String email,
     required String password,
   }) async {
@@ -37,9 +38,22 @@ class AppwriteStorage with NetworkLoggy {
       password: password,
     );
     loggy.debug(response.toString());
+    return response;
   }
 
   Future<void> logout() async {
     await _account.deleteSession(sessionId: 'current');
+  }
+
+  Future<User> registration({
+    required String email,
+    required String password,
+  }) async {
+    final response = await _account.create(
+      email: email,
+      password: password,
+    );
+    loggy.debug(response.toString());
+    return response;
   }
 }

@@ -3,6 +3,7 @@ import 'package:ownfactory_flutter/features/app/screens/coming_soon/coming_soon_
 import 'package:ownfactory_flutter/features/app/screens/init_screen/init_screen.dart';
 import 'package:ownfactory_flutter/features/app/screens/tabs_screen/tabs_screen.dart';
 import 'package:ownfactory_flutter/features/auth/screens/login_screen/login_screen.dart';
+import 'package:ownfactory_flutter/features/auth/screens/register_screen/register_screen.dart';
 import 'package:routemaster/routemaster.dart';
 
 abstract class AppRoutes {
@@ -34,7 +35,7 @@ abstract class AppRoutes {
             paths: AppRoutes.nonAuthTabs,
           ),
       AppRoutes.login: (_) => const MaterialPage<void>(child: LoginScreen()),
-      AppRoutes.register: (_) => const MaterialPage<void>(child: ComingSoonScreen()),
+      AppRoutes.register: (_) => const MaterialPage<void>(child: RegisterScreen()),
     },
     onUnknownRoute: (_) => const Redirect(AppRoutes.root),
   );

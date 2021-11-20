@@ -4,13 +4,6 @@ import 'package:ownfactory_flutter/features/app/screens/tabs_screen/tabs_screen.
 import 'package:ownfactory_flutter/utils/stub_model.dart';
 import 'package:routemaster/routemaster.dart';
 
-TabsScreenWM createTabsScreenWM(
-  BuildContext context, {
-  bool isAuth = false,
-}) {
-  return TabsScreenWM(isAuth: isAuth);
-}
-
 class TabsScreenWM extends WidgetModel<TabsScreen, StubModel> {
   final bool isAuth;
   final currentTabIndexState = StateNotifier<int>(initValue: 0);
@@ -32,4 +25,11 @@ class TabsScreenWM extends WidgetModel<TabsScreen, StubModel> {
   void _tabIndexListener() {
     currentTabIndexState.accept(tabPage.controller.index);
   }
+}
+
+TabsScreenWM createTabsScreenWM(
+  BuildContext context, {
+  bool isAuth = false,
+}) {
+  return TabsScreenWM(isAuth: isAuth);
 }

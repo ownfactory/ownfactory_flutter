@@ -10,13 +10,6 @@ import 'package:ownfactory_flutter/features/app/screens/interactor/init_interact
 import 'package:ownfactory_flutter/features/auth/session_interactor.dart';
 import 'package:ownfactory_flutter/utils/stub_model.dart';
 
-AppWM createAppWM(BuildContext context) {
-  return AppWM(
-    getIt<InitInteractor>(),
-    getIt<SessionInteractor>(),
-  );
-}
-
 enum AppAuthState {
   loading,
   nonAuth,
@@ -78,4 +71,11 @@ class AppWM extends WidgetModel<App, StubModel> {
   void _authStateListener() {
     appAuthState.accept(_authToInitState(_sessionInteractor.isAuthState.value ?? false));
   }
+}
+
+AppWM createAppWM(BuildContext context) {
+  return AppWM(
+    getIt<InitInteractor>(),
+    getIt<SessionInteractor>(),
+  );
 }
