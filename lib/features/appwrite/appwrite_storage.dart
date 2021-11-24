@@ -10,6 +10,7 @@ class AppwriteStorage with NetworkLoggy {
 
   late final Client _client;
   late final Account _account;
+  late final Database _database;
 
   AppwriteStorage(this._env);
 
@@ -18,6 +19,7 @@ class AppwriteStorage with NetworkLoggy {
       ..setEndpoint(_env.endpoint)
       ..setProject(_env.projectId);
     _account = Account(_client);
+    _database = Database(_client);
   }
 
   Future<bool> isAuth() async {
@@ -50,6 +52,7 @@ class AppwriteStorage with NetworkLoggy {
     required String password,
   }) async {
     final response = await _account.create(
+      name: email,
       email: email,
       password: password,
     );
