@@ -1,4 +1,3 @@
-import 'package:loggy/loggy.dart';
 import 'package:migration/migration.dart';
 import 'package:migration/migration_version.dart';
 
@@ -6,8 +5,8 @@ class MigrationVersion1 extends MigrationVersion {
   MigrationVersion1(Migration migration) : super(migration);
 
   @override
-  bool versionUp() {
-    logDebug('Add here some actions to migrate');
+  Future<bool> versionUp() async {
+    await migration.createCollection('./assets/collections/products.json');
 
     return true;
   }

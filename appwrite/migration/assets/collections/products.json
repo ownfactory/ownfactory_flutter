@@ -1,0 +1,91 @@
+{
+  "$id": "6198c602b26ef",
+  "$permissions": {
+    "read": [
+      "*"
+    ],
+    "write": []
+  },
+  "name": "products",
+  "dateCreated": 1637402114,
+  "dateUpdated": 1637412438,
+  "rules": [
+    {
+      "$id": "6198cbd4bf814",
+      "$collection": "rules",
+      "type": "text",
+      "key": "name",
+      "label": "name",
+      "default": "",
+      "array": false,
+      "required": true,
+      "list": []
+    },
+    {
+      "$id": "6198cc7e408d0",
+      "$collection": "rules",
+      "type": "text",
+      "key": "article",
+      "label": "article",
+      "default": "",
+      "array": false,
+      "required": false,
+      "list": []
+    },
+    {
+      "$id": "6198ea031bfdc",
+      "$collection": "rules",
+      "type": "text",
+      "key": "type",
+      "label": "type",
+      "default": "product",
+      "array": false,
+      "required": true,
+      "list": []
+    },
+    {
+      "$id": "6198ed63ec425",
+      "$collection": "rules",
+      "type": "numeric",
+      "key": "priceIn",
+      "label": "priceIn",
+      "default": 0,
+      "array": false,
+      "required": false,
+      "list": []
+    },
+    {
+      "$id": "6198ed63ee57b",
+      "$collection": "rules",
+      "type": "numeric",
+      "key": "priceOut",
+      "label": "priceOut",
+      "default": 0,
+      "array": false,
+      "required": false,
+      "list": []
+    },
+    {
+      "$id": "6198ed63f0c13",
+      "$collection": "rules",
+      "type": "text",
+      "key": "description",
+      "label": "description",
+      "default": "",
+      "array": false,
+      "required": false,
+      "list": []
+    },
+    {
+      "$id": "6198ed63f2bcc",
+      "$collection": "rules",
+      "type": "boolean",
+      "key": "isDeleted",
+      "label": "isDeleted",
+      "default": false,
+      "array": false,
+      "required": true,
+      "list": []
+    }
+  ]
+}

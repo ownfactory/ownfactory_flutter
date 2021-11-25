@@ -5,5 +5,5 @@ abstract class MigrationVersion {
 
   MigrationVersion(this.migration);
 
-  bool versionUp();
+  Future<bool> versionUp();
 }

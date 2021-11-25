@@ -8,8 +8,10 @@ part of 'migration_metadata.dart';
 
 MigrationMetadata _$MigrationMetadataFromJson(Map<String, dynamic> json) => MigrationMetadata(
       version: json['version'] as int,
+      collections: (json['collections'] as List<dynamic>?)?.map((e) => e as String).toList() ?? const [],
     );
 
 Map<String, dynamic> _$MigrationMetadataToJson(MigrationMetadata instance) => <String, dynamic>{
       'version': instance.version,
+      'collections': instance.collections,
     };

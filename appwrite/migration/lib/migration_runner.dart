@@ -1,4 +1,5 @@
 import 'package:loggy/loggy.dart';
+import 'package:migration/domain/collection_object.dart';
 import 'package:migration/domain/migration_metadata.dart';
 import 'package:migration/migration.dart';
 import 'package:migration/migration_info.dart';
@@ -27,13 +28,16 @@ class MigrationRunner {
       apiEndpoint: apiEndpoint,
       projectId: projectId,
       secretApiKey: secretApiKey,
+      createCollectionCallback: _createCollectionCallback,
     );
 
     _currentMetadata = await _getMetadata(migration);
     logInfo('Found version "$_currentVersion"');
 
     // maybe need sort versions?
+    allVersions.sort();
     final versions = allVersions.where((e) => e.version > _currentVersion);
+
     if (versions.isEmpty) {
       logInfo('No migration needed.');
       return;
@@ -42,8 +46,17 @@ class MigrationRunner {
     for (final versionInfo in versions) {
       logInfo('Migrate from "$_currentVersion" to "${versionInfo.version}"');
       final version = versionInfo.builder(migration);
-      if (version.versionUp()) {
-        _currentMetadata = MigrationMetadata(version: versionInfo.version);
+
+      bool isSuccess;
+      try {
+        isSuccess = await version.versionUp();
+      } catch (e) {
+        logError(e.toString());
+        isSuccess = false;
+      }
+
+      if (isSuccess) {
+        _currentMetadata = _currentMetadata.copyWith(version: versionInfo.version);
       } else {
         throw Exception('Migration to version ${versionInfo.version} fail');
       }
@@ -70,5 +83,15 @@ class MigrationRunner {
     logInfo('Initialize migration metadata in Appwrite project');
     final metadata = MigrationMetadata(version: 0);
     await migration.initMetadata(metadata);
+  }
+
+  void _createCollectionCallback(CollectionObject collection) {
+    final collections = [
+      ..._currentMetadata.collections,
+      collection.name,
+    ];
+    _currentMetadata = _currentMetadata.copyWith(
+      collections: collections,
+    );
   }
 }
