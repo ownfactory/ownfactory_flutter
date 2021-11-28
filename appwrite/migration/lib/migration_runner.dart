@@ -1,5 +1,6 @@
 import 'package:loggy/loggy.dart';
 import 'package:migration/domain/collection_object.dart';
+import 'package:migration/domain/metadata_collection.dart';
 import 'package:migration/domain/migration_metadata.dart';
 import 'package:migration/migration.dart';
 import 'package:migration/migration_info.dart';
@@ -81,14 +82,14 @@ class MigrationRunner {
 
   Future<void> _initMigration(Migration migration) async {
     logInfo('Initialize migration metadata in Appwrite project');
-    final metadata = MigrationMetadata(version: 0);
+    final metadata = MigrationMetadata(version: 0, collections: []);
     await migration.initMetadata(metadata);
   }
 
   void _createCollectionCallback(CollectionObject collection) {
     final collections = [
       ..._currentMetadata.collections,
-      collection.name,
+      MetadataCollection(id: collection.id!, name: collection.name),
     ];
     _currentMetadata = _currentMetadata.copyWith(
       collections: collections,

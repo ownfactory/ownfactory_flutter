@@ -106,7 +106,7 @@ class Migration {
       name: collection.name,
       read: collection.permissions.read,
       write: collection.permissions.write,
-      rules: [],
+      rules: collection.rules,
     );
     late final CollectionObject newCollection;
     if (response.data is Map) {

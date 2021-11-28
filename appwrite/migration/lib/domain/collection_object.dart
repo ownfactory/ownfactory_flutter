@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:migration/domain/collection_rule.dart';
 import 'package:migration/domain/permission_object.dart';
 
 part 'collection_object.g.dart';
@@ -10,11 +11,13 @@ class CollectionObject {
   final String name;
   @JsonKey(name: '\$permissions')
   final PermissionObject permissions;
+  final List<CollectionRule> rules;
 
   CollectionObject({
     this.id,
     required this.name,
     required this.permissions,
+    required this.rules,
   });
 
   Map<String, dynamic> toJson() => _$CollectionObjectToJson(this);

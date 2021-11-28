@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:migration/domain/metadata_collection.dart';
+import 'package:ownfactory_flutter/features/appwrite/dto/metadata_collection.dart';
 
 part 'migration_metadata.g.dart';
 
@@ -13,6 +13,10 @@ class MigrationMetadata {
     required this.collections,
   });
 
+  factory MigrationMetadata.fromJson(Map<String, dynamic> json) => _$MigrationMetadataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MigrationMetadataToJson(this);
+
   MigrationMetadata copyWith({
     int? version,
     List<MetadataCollection>? collections,
@@ -21,8 +25,4 @@ class MigrationMetadata {
         version: version ?? this.version,
         collections: collections ?? this.collections,
       );
-
-  Map<String, dynamic> toJson() => _$MigrationMetadataToJson(this);
-
-  factory MigrationMetadata.fromJson(Map<String, dynamic> json) => _$MigrationMetadataFromJson(json);
 }
