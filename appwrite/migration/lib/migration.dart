@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
+import 'dart:io' as io;
 
 import 'package:collection/collection.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:dart_appwrite/models.dart';
 import 'package:loggy/loggy.dart';
-import 'package:migration/domain/collection_object.dart';
-import 'package:migration/domain/file_list.dart';
 import 'package:migration/domain/migration_metadata.dart';
 
 const metadataFileName = 'metadata.json';
 
-typedef CreateCollectionCallback = void Function(CollectionObject);
+typedef CreateCollectionCallback = void Function(Collection);
 
 class Migration {
   final Client _client;
@@ -58,18 +56,12 @@ class Migration {
 
   Future<FileList> _listFiles({String? search}) async {
     final response = await _storage.listFiles(search: search);
-    return FileList.fromJson(response.data);
+    return response;
   }
 
   Future<MigrationMetadata?> _downloadMetadata({required String fileId}) async {
     final response = await _storage.getFileDownload(fileId: fileId);
-    if (response.data is Map) {
-      return MigrationMetadata.fromJson(response.data);
-    }
-    if (response.data is Uint8List) {
-      return MigrationMetadata.fromJson(jsonDecode(String.fromCharCodes(response.data)));
-    }
-    throw Exception('Unknown $metadataFileName format');
+    return MigrationMetadata.fromJson(jsonDecode(String.fromCharCodes(response)));
   }
 
   Future<void> saveMetadata(MigrationMetadata metadata) async {
@@ -96,26 +88,18 @@ class Migration {
   }
 
   Future<void> createCollection(String assetFileName) async {
-    final file = File(assetFileName);
+    final file = io.File(assetFileName);
     final json = jsonDecode(await file.readAsString());
-    final collection = CollectionObject.fromJson(json);
+    final collection = Collection.fromMap(json);
 
     logInfo('Create collection: ${collection.name}');
 
     final response = await _database.createCollection(
       name: collection.name,
-      read: collection.permissions.read,
-      write: collection.permissions.write,
+      read: collection.$permissions.read,
+      write: collection.$permissions.write,
       rules: collection.rules,
     );
-    late final CollectionObject newCollection;
-    if (response.data is Map) {
-      newCollection = CollectionObject.fromJson(response.data);
-    } else if (response.data is Uint8List) {
-      newCollection = CollectionObject.fromJson(jsonDecode(String.fromCharCodes(response.data)));
-    } else {
-      throw Exception('Unknown $metadataFileName format');
-    }
-    createCollectionCallback(newCollection);
+    createCollectionCallback(response);
   }
 }

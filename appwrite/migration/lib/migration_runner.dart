@@ -1,5 +1,5 @@
+import 'package:dart_appwrite/models.dart';
 import 'package:loggy/loggy.dart';
-import 'package:migration/domain/collection_object.dart';
 import 'package:migration/domain/metadata_collection.dart';
 import 'package:migration/domain/migration_metadata.dart';
 import 'package:migration/migration.dart';
@@ -86,10 +86,10 @@ class MigrationRunner {
     await migration.initMetadata(metadata);
   }
 
-  void _createCollectionCallback(CollectionObject collection) {
+  void _createCollectionCallback(Collection collection) {
     final collections = [
       ..._currentMetadata.collections,
-      MetadataCollection(id: collection.id!, name: collection.name),
+      MetadataCollection(id: collection.$id, name: collection.name),
     ];
     _currentMetadata = _currentMetadata.copyWith(
       collections: collections,
