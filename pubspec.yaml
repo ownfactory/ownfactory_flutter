@@ -21,6 +21,10 @@ dependencies:
   loggy: ^2.0.1
   routemaster: ^0.9.5
 
+  # todo
+  # infinite_scroll_pagination
+  # flutter_form_builder
+
 dev_dependencies:
   build_runner: ^2.1.7
   elementary_test: ^1.0.1
