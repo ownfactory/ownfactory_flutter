@@ -8,7 +8,7 @@
 PRODUCT_NAME = ownfactory_flutter
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.ownfactoryFlutter
+PRODUCT_BUNDLE_IDENTIFIER = org.ownfactory.ownfactoryFlutter
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2021 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 org.ownfactory. All rights reserved.
