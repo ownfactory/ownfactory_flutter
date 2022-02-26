@@ -1,0 +1,78 @@
+{
+  "$id": "products",
+  "$read": [
+    "role:all"
+  ],
+  "$write": [
+    "role:all"
+  ],
+  "name": "products",
+  "enabled": true,
+  "permission": "collection",
+  "attributes": [
+    {
+      "key": "name",
+      "type": "string",
+      "status": "available",
+      "required": true,
+      "array": false,
+      "size": 65535
+    },
+    {
+      "key": "article",
+      "type": "string",
+      "status": "available",
+      "required": false,
+      "array": false,
+      "size": 65535,
+      "default": ""
+    },
+    {
+      "key": "type",
+      "type": "string",
+      "status": "available",
+      "required": true,
+      "array": false,
+      "size": 65535,
+      "default": null
+    },
+    {
+      "key": "priceIn",
+      "type": "double",
+      "status": "available",
+      "required": false,
+      "array": false,
+      "min": -1.7976931348623157e+308,
+      "max": 1.7976931348623157e+308,
+      "default": 0
+    },
+    {
+      "key": "priceOut",
+      "type": "double",
+      "status": "available",
+      "required": false,
+      "array": false,
+      "min": -1.7976931348623157e+308,
+      "max": 1.7976931348623157e+308,
+      "default": 0
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "status": "available",
+      "required": false,
+      "array": false,
+      "size": 65535,
+      "default": ""
+    },
+    {
+      "key": "isDeleted",
+      "type": "boolean",
+      "status": "available",
+      "required": true,
+      "array": false,
+      "default": null
+    }
+  ],
+  "indexes": []
+}
