@@ -69,6 +69,7 @@ class AppwriteStorage with NetworkLoggy {
     required String password,
   }) async {
     final response = await _account.create(
+      userId: 'unique()',
       name: email,
       email: email,
       password: password,

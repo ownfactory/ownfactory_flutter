@@ -1,6 +1,5 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ownfactory_flutter/features/app/screens/coming_soon/coming_soon_screen_wm.dart';
 
 class ComingSoonScreenRoute extends MaterialPageRoute<void> {
