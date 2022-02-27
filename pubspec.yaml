@@ -11,6 +11,8 @@ dependencies:
   appwrite: ^3.0.1
   cupertino_icons: ^1.0.4
   elementary: ^1.1.0
+  firebase_auth: ^3.3.9
+  firebase_core: ^1.13.1
 
   flutter:
     sdk: flutter

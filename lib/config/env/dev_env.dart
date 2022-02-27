@@ -13,7 +13,6 @@ class DevEnv extends Env {
       buildType: BuildType.release,
       endpoint: AppwriteConfig.endpointDev,
       projectId: AppwriteConfig.projectIdDev,
-      proxyUrl: AppwriteConfig.proxyUrlDev,
       debugOptions: DebugOptions(
         debugShowCheckedModeBanner: true,
       ),

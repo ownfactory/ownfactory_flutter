@@ -59,7 +59,6 @@ class Env extends ChangeNotifier {
           buildType: BuildType.release,
           endpoint: AppwriteConfig.endpointProd,
           projectId: AppwriteConfig.projectIdProd,
-          proxyUrl: AppwriteConfig.proxyUrlProd,
           debugOptions: DebugOptions(),
         );
 }
